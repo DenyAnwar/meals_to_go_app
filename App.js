@@ -5,6 +5,7 @@ import { Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { ThemeProvider } from "styled-components/native";
+
 import {
   useFonts as useOswald,
   Oswald_400Regular,
@@ -14,6 +15,7 @@ import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { theme } from "./src/infrastructure/theme";
 import { RestaurantScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { SafeArea } from "./src/components/utility/safe-area.component";
+import { restaurantRequest } from "./src/services/restaurants/restaurants.service";
 
 const Tab = createBottomTabNavigator();
 
