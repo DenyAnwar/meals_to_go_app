@@ -8,7 +8,7 @@ import {
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-import { RestaurantScreen } from "./src/components/features/restaurants/screens/restaurants.screen";
+import { RestaurantScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { theme } from "./src/infrastructure/theme";
 
 export default function App() {
