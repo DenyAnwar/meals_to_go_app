@@ -1,5 +1,3 @@
-import React from "react";
-import { View } from "react-native";
 import styled from "styled-components/native";
 
 const sizeVariant = {
@@ -23,7 +21,7 @@ const getVariant = (position, size, theme) => {
   return `${property}:${value}`;
 };
 
-export const Spacer = styled(View)`
+export const Spacer = styled.View`
   ${({ position, size, theme }) => getVariant(position, size, theme)}
 `;
 
