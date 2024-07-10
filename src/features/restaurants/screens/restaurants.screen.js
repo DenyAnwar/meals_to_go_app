@@ -28,7 +28,7 @@ const LoadingContainer = styled.View`
   justify-content: center;
 `;
 
-export const RestaurantScreen = () => {
+export const RestaurantsScreen = () => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
 
   return (

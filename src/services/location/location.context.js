@@ -11,7 +11,6 @@ export const LocationContextProvider = ({ children }) => {
 
   const onSearch = (searchKeyword) => {
     setIsLoading(true);
-    console.log(searchKeyword);
     setKeyword(searchKeyword);
   };
 
