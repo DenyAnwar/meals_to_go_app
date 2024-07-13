@@ -6,5 +6,5 @@ export const SearchContainer = styled.View`
 `;
 
 export const Searchbar = styled(PaperSearchbar)`
-  border-radius: 5px;
+  border-radius: 7px;
 `;
