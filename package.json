@@ -30,7 +30,8 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "15.2.0",
     "styled-components": "^6.1.11",
-    "react-native-maps": "1.14.0"
+    "react-native-maps": "1.14.0",
+    "react-native-webview": "13.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

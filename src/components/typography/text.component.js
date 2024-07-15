@@ -32,6 +32,10 @@ const label = (theme) => `
   font-weight: ${theme.fontWeights.medium};
 `;
 
+const centerText = () => `
+  text-align: center;
+`;
+
 const variants = {
   body,
   label,
@@ -43,6 +47,7 @@ const variants = {
 export const Text = styled.Text`
   ${({ theme }) => defaultTextStyles(theme)}
   ${({ variant, theme }) => variants[variant](theme)}
+  ${({ center }) => center && centerText()}
 `;
 
 Text.defaultProps = {
