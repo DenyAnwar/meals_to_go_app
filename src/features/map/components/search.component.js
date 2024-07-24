@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 
-import { SearchContainer, Searchbar } from "./search.style";
+import { SearchContainer, Searchbar } from "./search.styles";
 import { LocationContext } from "../../../services/location/location.context";
 
 export const Search = () => {

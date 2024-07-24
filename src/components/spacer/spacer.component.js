@@ -26,6 +26,6 @@ export const Spacer = styled.View`
 `;
 
 Spacer.defaultProps = {
-  postition: "top",
+  position: "top",
   size: "small",
 };
