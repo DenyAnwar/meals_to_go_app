@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { ActivityIndicator } from "react-native-paper";
+import React, { useState, useContext, useEffect } from "react";
+import { ActivityIndicator, TextInput } from "react-native-paper";
 import {
   AccountBackground,
   AccountCover,
@@ -12,12 +12,15 @@ import {
 import { Text } from "../../../components/typography/text.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
-import { color } from "../../../infrastructure/theme/colors";
+import { colors } from "../../../infrastructure/theme/colors";
 
 export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { onLogin, error, isLoading } = useContext(AuthenticationContext);
+  const { onLogin, error, isLoading, onClearError } = useContext(
+    AuthenticationContext
+  );
+  const [secureTextEntryPassword, setSecureTextEntryPassword] = useState(true);
 
   return (
     <AccountBackground>
@@ -30,16 +33,24 @@ export const LoginScreen = ({ navigation }) => {
           textContentType="emailAddress"
           keyboardType="email-address"
           autoCapitalize="none"
-          onChangeText={(u) => setEmail(u)}
+          onChangeText={setEmail}
         />
         <Spacer size="large">
           <AuthInput
-            label="password"
+            label="Password"
             value={password}
             textContentType="password"
-            secureTextEntry
+            secureTextEntry={secureTextEntryPassword}
             autoCapitalize="none"
-            onChangeText={(p) => setPassword(p)}
+            right={
+              <TextInput.Icon
+                icon="eye"
+                onPress={() => {
+                  setSecureTextEntryPassword((prev) => !prev);
+                }}
+              />
+            }
+            onChangeText={setPassword}
           />
         </Spacer>
         {error && (
@@ -48,12 +59,27 @@ export const LoginScreen = ({ navigation }) => {
           </ErrorContainer>
         )}
         <Spacer size="large">
+          {!isLoading ? (
+            <AuthButton
+              icon="lock-open-outline"
+              mode="contained"
+              onPress={() => onLogin(email, password)}
+            >
+              Login
+            </AuthButton>
+          ) : (
+            <ActivityIndicator animating={true} color={colors.brand.primary} />
+          )}
+        </Spacer>
+        <Spacer size="large">
           <AuthButton
-            icon="lock-open-outline"
             mode="contained"
-            onPress={() => onLogin(email, password)}
+            onPress={() => {
+              onClearError();
+              navigation.goBack();
+            }}
           >
-            Login
+            Back
           </AuthButton>
         </Spacer>
       </AccountContainer>
