@@ -18,8 +18,15 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.denyanwardev.mealsToGoApp"
+    },
+    "plugins": ["expo-font"],
+    "extra": {
+      "eas": {
+        "projectId": "f8c2fb0d-e3d0-4f07-b3c4-1d26024ddd5f"
       }
     },
-    "plugins": ["expo-font"]
+    "owner": "denyanwardev"
   }
 }
