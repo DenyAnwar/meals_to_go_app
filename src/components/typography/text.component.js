@@ -32,6 +32,13 @@ const label = (theme) => `
   font-weight: ${theme.fontWeights.medium};
 `;
 
+const secondLabel = (theme) => `
+  font-family: ${theme.fonts.heading};
+  font-size: ${theme.fontSizes.body};
+  font-weight: ${theme.fontWeights.medium};
+  color: ${theme.colors.text.secondary};
+`;
+
 const centerText = () => `
   text-align: center;
 `;
@@ -42,6 +49,7 @@ const variants = {
   caption,
   error,
   hint,
+  secondLabel,
 };
 
 export const Text = styled.Text`
