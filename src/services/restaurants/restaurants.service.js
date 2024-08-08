@@ -1,21 +1,15 @@
-import { mocks, mockImages } from "../mock";
 import camelize from "camelize";
 
 export const restaurantsRequest = (location) => {
-  return new Promise((resolve, reject) => {
-    const mock = mocks[location];
-    if (!mock) {
-      reject("not found");
-    }
-    resolve(mock);
+  return fetch(
+    `https://09c4-114-122-229-233.ngrok-free.app/mealstogo-beadd/us-central1/placesNearby?location=${location}`
+  ).then((res) => {
+    return res.json();
   });
 };
 
 export const restaurantsTransform = ({ results = [] }) => {
   const MappedResult = results.map((restaurant) => {
-    restaurant.photos = restaurant.photos.map((p) => {
-      return mockImages[Math.ceil(Math.random() * mockImages.length - 1)];
-    });
     return {
       ...restaurant,
       address: restaurant.vicinity,
